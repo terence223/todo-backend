@@ -4,9 +4,10 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('todo-backend:server');
-var http = require('http');
+const app = require('../app');
+const debug = require('debug')('todo-backend:server');
+const http = require('http');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 /**
@@ -26,9 +27,19 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+mongoose
+  .connect(
+    `mongodb+srv://${process.env.DB_ACCOUNT}:${process.env.DB_PASSWORD}@${process.env.DB_URL}/?retryWrites=true&w=majority`
+  )
+  .then(() => {
+    console.log('DB connected successfully');
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
 /**
  * Normalize a port into a number, string, or false.
