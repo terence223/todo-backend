@@ -2,8 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const authRouter = require('./routes/auth');
 
 const app = express();
+
+app.use('/', authRouter);
 
 app.use(logger('dev'));
 app.use(express.json());
