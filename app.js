@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const helmet = require('helmet');
 
 const authRouter = require('./routes/auth');
 const todoRouter = require('./routes/todo');
@@ -26,5 +27,7 @@ app.use(bodyParser.json());
 
 app.use('/', authRouter);
 app.use('/todo', todoRouter);
+
+app.use(helmet());
 
 module.exports = app;
