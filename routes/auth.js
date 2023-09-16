@@ -1,5 +1,5 @@
 const express = require('express');
-const { check } = require('express-validator/check');
+const { body } = require('express-validator/check');
 const router = express.Router();
 
 const User = require('../models/user');
@@ -7,13 +7,13 @@ const authController = require('../controllers/auth');
 
 const PASS_LENGTH_LIMIT = 8;
 
-router.put(
+router.post(
   '/signup',
   [
-    check('email')
+    body('email')
       .normalizeEmail()
       .isEmail()
-      .withMessage('Please enter real email')
+      .withMessage('Please enter legal email')
       .custom(email => {
         return User.findOne({ email }).then(user => {
           if (user) {
@@ -21,8 +21,8 @@ router.put(
           }
         });
       }),
-    check('password').trim().isLength({ min: PASS_LENGTH_LIMIT }),
-    check('name').trim().not().isEmpty(),
+    body('password').trim().isLength({ min: PASS_LENGTH_LIMIT }),
+    body('name').trim().not().isEmpty(),
   ],
   authController.signup
 );

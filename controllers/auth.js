@@ -1,4 +1,4 @@
-const { check } = require('express-validator/check');
+const { validationResult } = require('express-validator/check');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -6,7 +6,8 @@ require('dotenv').config();
 const User = require('../models/user');
 
 exports.signup = (req, res, next) => {
-  const errors = check(req);
+  const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     const error = new Error('Signup error!');
     error.statusCode = 422;
@@ -48,7 +49,7 @@ exports.login = (req, res, next) => {
   User.findOne({ email })
     .then(user => {
       if (!user) {
-        const error = new Error("User doesn't exist!");
+        const error = new Error("User doesn't exist! Please signup first!");
         error.statusCode = 401;
         throw error;
       }
