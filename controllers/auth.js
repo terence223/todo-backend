@@ -70,7 +70,7 @@ exports.login = (req, res, next) => {
         process.env.DB_JWT_SECRET,
         { expiresIn: '24h' }
       );
-      res.status(200).json({ token });
+      res.status(200).json({ token, userId: userData._id.toString() });
     })
     .catch(err => {
       if (!err.statusCode) {
