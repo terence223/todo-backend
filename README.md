@@ -91,16 +91,16 @@ Authorization : Bearer "JWT token"
 status : 200
 
 {
-	todos : [
-		{
+    todos : [
+        {
             _id: (Todo ID)
             title: "Todo Title"
             checked: true
             owner: (User ID)
             createdAt: "2023-09-18T12:30:45.395Z"
             updatedAt: "2023-09-18T12:40:03.457Z"
-		}
-	]
+        }
+    ]
 }
 ```
 
