@@ -93,7 +93,7 @@ status : 200
 {
 	todos : [
 		{
-			_id: (Todo ID)
+            _id: (Todo ID)
             title: "Todo Title"
             checked: true
             owner: (User ID)
