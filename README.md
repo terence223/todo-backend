@@ -27,7 +27,7 @@ run NodeJS express server and connect to your mongoDB
 
 ### SIGNUP
 
-\*request
+- request
 
 ```
 POST /signup
@@ -52,7 +52,7 @@ status : 201
 
 ### SIGNIN
 
-\*request
+- request
 
 ```
 POST /login
@@ -76,7 +76,7 @@ status : 200
 
 ### GET TODO LIST
 
-\*request
+- request
 
 ```
 GET /list
@@ -94,11 +94,11 @@ status : 200
 	todos : [
 		{
 			_id: (Todo ID)
-          title: "Todo Title"
-          checked: true
-          owner: (User ID)
-          createdAt: "2023-09-18T12:30:45.395Z"
-          updatedAt: "2023-09-18T12:40:03.457Z"
+            title: "Todo Title"
+            checked: true
+            owner: (User ID)
+            createdAt: "2023-09-18T12:30:45.395Z"
+            updatedAt: "2023-09-18T12:40:03.457Z"
 		}
 	]
 }
@@ -106,7 +106,7 @@ status : 200
 
 ### CREATE TODO
 
-\*request
+- request
 
 ```
 POST /create
@@ -131,7 +131,7 @@ status : 201
 
 ### UPDATE TODO
 
-\*request
+- request
 
 ```
 PUT /:todoId
@@ -157,7 +157,7 @@ status : 200
 
 ### DELETE TODO
 
-\*request
+- request
 
 ```
 DELETE /:todoId
