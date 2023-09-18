@@ -1,6 +1,6 @@
 # Introduction
 
-Simple Signup, Signin and Todolist webpage. Little practice for NodeJS express with MongoDB. The frontend part is made by Vite React : [https://github.com/terence223/todo-frontend](https://github.com/terence223/todo-frontend)
+My first backend practice project.(I was pure frontend-engineer :P) Simple Signup, Signin and Todolist webpage. Little practice for NodeJS express with MongoDB. The frontend part is made by Vite React : [https://github.com/terence223/todo-frontend](https://github.com/terence223/todo-frontend)
 
 # Homepage
 
