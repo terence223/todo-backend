@@ -1,0 +1,6 @@
+Please read readme file, add necessary values for these variables, and then change filename to ".env"
+
+DB_ACCOUNT=
+DB_PASSWORD=
+DB_URL=
+DB_JWT_SECRET=
