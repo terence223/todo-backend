@@ -37,7 +37,7 @@ exports.createTodo = (req, res, next) => {
   todo
     .save()
     .then(result => {
-      User.findById(req.userId).then(user => {
+      return User.findById(req.userId).then(user => {
         user.todolist.push(result._id);
         return user.save();
       });
